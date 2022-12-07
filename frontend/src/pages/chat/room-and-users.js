@@ -1,6 +1,8 @@
 import styles from './styles.module.css';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import logo from './chili-pepper.png'
+import Button from '@mui/material/Button';
 
 const RoomAndUsers = ({ socket, username, room }) => {
   const [roomUsers, setRoomUsers] = useState([]);
@@ -25,7 +27,21 @@ const RoomAndUsers = ({ socket, username, room }) => {
 
   return (
     <div className={styles.roomAndUsersColumn}>
-      <h2 className={styles.roomTitle}>{room}</h2>
+      <div className={styles.logoDiv}>
+        <img src={logo} alt="logo" className={styles.logo} />
+        <label className={styles.logoName}>Spicy Chat</label>
+      </div>
+      <div className={styles.logoDiv}>
+        <h2 className={styles.roomTitle}>{room}</h2>
+        <Button
+          variant='contained'
+          color='error'
+          style={{ fontWeight: 'bold' }}
+          onClick={leaveRoom}
+        >
+          Leave
+        </Button>
+      </div>
 
       <div>
         {roomUsers.length > 0 && <h5 className={styles.usersTitle}>Users:</h5>}
@@ -42,10 +58,6 @@ const RoomAndUsers = ({ socket, username, room }) => {
           ))}
         </ul>
       </div>
-
-      <button className='btn btn-outline' onClick={leaveRoom}>
-        Leave
-      </button>
     </div>
   );
 };

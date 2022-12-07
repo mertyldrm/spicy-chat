@@ -1,5 +1,6 @@
 import styles from './styles.module.css';
 import React, { useState } from 'react';
+import Button from '@mui/material/Button';
 
 const SendMessage = ({ socket, username, room }) => {
   const [message, setMessage] = useState('');
@@ -21,9 +22,13 @@ const SendMessage = ({ socket, username, room }) => {
         onChange={(e) => setMessage(e.target.value)}
         value={message}
       />
-      <button className='btn btn-primary' onClick={sendMessage}>
+      <Button
+        variant='contained'
+        style={{ fontWeight: 'bold' }}
+        onClick={sendMessage}
+      >
         Send Message
-      </button>
+      </Button>
     </div>
   );
 };
