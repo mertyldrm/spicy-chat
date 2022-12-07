@@ -1,5 +1,7 @@
 import styles from './styles.module.css';
-import { useNavigate } from 'react-router-dom'; // Add this
+import { useNavigate } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import logo from './chili-pepper.png'
 
 const Home = ({ username, setUsername, room, setRoom, socket }) => {
   const navigate = useNavigate(); // Add this
@@ -16,7 +18,10 @@ const Home = ({ username, setUsername, room, setRoom, socket }) => {
   return (
     <div className={styles.container}>
       <div className={styles.formContainer}>
-        <h1>{`<>DevRooms</>`}</h1>
+        <div className={styles.logoDiv}>
+          <img src={logo} alt="logo" className={styles.logo} />
+          <label className={styles.logoName}>Spicy Chat</label>
+        </div>
         <input
           className={styles.input}
           placeholder='Username...'
@@ -34,13 +39,14 @@ const Home = ({ username, setUsername, room, setRoom, socket }) => {
           <option value='react'>React</option>
         </select>
 
-        <button
-          className='btn btn-secondary'
-          style={{ width: '100%' }}
+        <Button
+          variant='contained'
+          color='success'
+          style={{ width: '100%', fontWeight: 'bold' }}
           onClick={joinRoom}
         >
           Join Room
-        </button>
+        </Button>
       </div>
     </div>
   );
