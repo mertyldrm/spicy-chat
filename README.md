@@ -16,3 +16,9 @@ Then, open a browser and go to "localhost:8080". At the same time, open incognit
 Enter different usernames for the both tab and login application.
 If you want to reset the session, F12->Application->Local Storage->Delete sessionID and refresh the page. After that, you can login with another user name.
 To test instant messaging, click one of the online names that has already opened on another tab (incognito or another browser).
+
+Implementation team:
+Alperen Alkan 
+Bora Kazancı
+Mert Yıldırım
+Zeynep Ziyagil
