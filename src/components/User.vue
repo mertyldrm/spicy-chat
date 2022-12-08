@@ -8,7 +8,7 @@
         <status-icon :connected="user.connected" />{{ status }}
       </div>
     </div>
-    <div v-if="user.hasNewMessages" class="new-messages">!</div>
+    <div v-if="user.hasNewMessages" class="new-messages">+</div>
   </div>
 </template>
 
@@ -36,11 +36,12 @@ export default {
 
 <style scoped>
 .selected {
-  background-color: #1164a3;
+  background-color: #f44335;
 }
 
 .user {
   padding: 10px;
+  cursor: pointer;
 }
 
 .description {

@@ -1,20 +1,16 @@
 <template>
   <div>
-    <div class="left-panel">
-      <user
-        v-for="user in users"
-        :key="user.userID"
-        :user="user"
-        :selected="selectedUser === user"
-        @select="onSelectUser(user)"
-      />
+    <div class="logo-panel">
+      <div class='logoDiv '>
+        <img src='./chili-pepper.png' alt="logo" class='logo' />
+        <label class='logoName'>Spicy Chat</label>
+      </div>
     </div>
-    <message-panel
-      v-if="selectedUser"
-      :user="selectedUser"
-      @input="onMessage"
-      class="right-panel"
-    />
+    <div class="left-panel">
+      <user v-for="user in users" :key="user.userID" :user="user" :selected="selectedUser === user"
+        @select="onSelectUser(user)" />
+    </div>
+    <message-panel v-if="selectedUser" :user="selectedUser" @input="onMessage" class="right-panel" />
   </div>
 </template>
 
@@ -151,15 +147,40 @@ export default {
 .left-panel {
   position: fixed;
   left: 0;
-  top: 0;
+  top: 110px;
   bottom: 0;
   width: 260px;
   overflow-x: hidden;
-  background-color: #3f0e40;
+  background-color: #121212;
   color: white;
+  border-right: 2px solid #bfbfbf;
 }
 
 .right-panel {
   margin-left: 260px;
+  margin-top: 10px;
+}
+
+.logo-panel {
+  border-bottom: 2px solid #bfbfbf;
+  background-color: #121212;
+}
+
+.logoDiv {
+  margin-right: 20px;
+  padding-bottom: 30px;
+  margin-left: 45%;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  margin-top: 10px;
+}
+
+.logoName {
+  font-size: 40px;
+  font-weight: bold;
+  color: #fff;
 }
 </style>

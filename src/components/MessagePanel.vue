@@ -5,20 +5,16 @@
     </div>
 
     <ul class="messages">
-      <li
-        v-for="(message, index) in user.messages"
-        :key="index"
-        class="message"
-      >
-        <div v-if="displaySender(message, index)" class="sender">
-          {{ message.fromSelf ? "(yourself)" : user.username }}
+      <li v-for="(message, index) in user.messages" :key="index" class="message">
+        <div v-if="displaySender(message, index)" class="sender" :class="{ 'message-sender': message.fromSelf }">
+          {{ message.fromSelf ? "You" : user.username }}
         </div>
         {{ message.content }}
       </li>
     </ul>
 
     <form @submit.prevent="onSubmit" class="form">
-      <textarea v-model="input" placeholder="Your message..." class="input" />
+      <input type="text" v-model="input" placeholder="Your message..." class="input" />
       <button :disabled="!isValid" class="send-button">Send</button>
     </form>
   </div>
@@ -49,7 +45,7 @@ export default {
       return (
         index === 0 ||
         this.user.messages[index - 1].fromSelf !==
-          this.user.messages[index].fromSelf
+        this.user.messages[index].fromSelf
       );
     },
   },
@@ -84,6 +80,11 @@ export default {
 
 .form {
   padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 90%;
+  background-color: #121212;
+  border-left: 2px solid #bfbfbf;
 }
 
 .input {
@@ -96,6 +97,20 @@ export default {
 }
 
 .send-button {
-  vertical-align: top;
+  vertical-align: middle;
+  margin-left: 20px;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 10%;
+  color: white;
+  padding: 13px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.message-sender {
+  color: #f44335;
 }
 </style>

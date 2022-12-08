@@ -1,9 +1,6 @@
 <template>
   <div id="app">
-    <select-username
-      v-if="!usernameAlreadySelected"
-      @input="onUsernameSelection"
-    />
+    <select-username v-if="!usernameAlreadySelected" @input="onUsernameSelection" />
     <chat v-else />
   </div>
 </template>
@@ -66,13 +63,8 @@ body {
   margin: 0;
 }
 
-@font-face {
-  font-family: Lato;
-  src: url("/fonts/Lato-Regular.ttf");
-}
-
 #app {
-  font-family: Lato, Arial, sans-serif;
-  font-size: 14px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 17px;
 }
 </style>
